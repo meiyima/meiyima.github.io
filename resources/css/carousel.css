@@ -7,7 +7,7 @@ body {
   padding-right: 0rem;
   /*padding-top: 3rem;*/
   padding-bottom: 3rem;
-  color: #333333;
+  color: #000;
 }
 
 
@@ -40,12 +40,12 @@ img {
 }
 
 .leftbar {
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   border-right: 1px solid #aaaaaa;
   padding-left: 1rem;
   padding-top: 1rem;
   font-family: "Optima", "Calibri", Palatino, serif;
-  font-size: 80%;
+  font-size: 90%;
   /*margin-right: .75rem;*/
   /*display: table;*/
 /*  float:left;
@@ -57,7 +57,7 @@ img {
 
 .mainpanel {
   float:right;
-  padding-left: 1rem;
+  padding-left: 2rem;
   padding-top: 1rem;
   background-color: #ffffff;
   font-family: "Optima", "Calibri", Palatino, serif;
@@ -96,10 +96,17 @@ a.pubname:hover{
 }
 .mainpanel p {
   margin-bottom: 0rem;
+  font-size:15px;
 }
 .mainpanel h5 {
 
   font-family: "Apple Chancery",cursive;
+  /*font-weight:bold;*/
+  color: #b30059;
+}
+.mainpanel li {
+
+  font-size: 15px;
   /*font-weight:bold;*/
 }
 /* MARKETING CONTENT
@@ -123,8 +130,8 @@ a.pubname:hover{
   padding-bottom: 0.1rem;
   color: #236B8E;
   /*#b30059;*/
-  font-size: 130%;
-  font-family: "Optima", "Calibri", "Palatino", serif;
+  font-size: 100%;
+  font-family: "Optima", "Palatino", serif;
 }
 
 .leftbar a.nav-link:hover {
