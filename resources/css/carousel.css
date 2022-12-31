@@ -44,7 +44,7 @@ img {
   border-right: 1px solid #aaaaaa;
   padding-left: 1rem;
   padding-top: 1rem;
-  font-family: "Optima", "Calibri", Palatino, serif;
+  font-family: "Optima", "Palatino", "Calibri", serif;
   font-size: 90%;
   /*margin-right: .75rem;*/
   /*display: table;*/
@@ -60,7 +60,7 @@ img {
   padding-left: 2rem;
   padding-top: 1rem;
   background-color: #ffffff;
-  font-family: "Optima", "Calibri", Palatino, serif;
+  font-family: "Optima", "Palatino", "Calibri",  serif;
 }
 
 .mainpanel h2 {
@@ -90,7 +90,7 @@ a.pubname:hover{
   padding-left: 1rem;
   font-size: 20px;
   /*font-weight:bold;*/
-  font-family: "Optima", "Calibri", "Palatino", serif;
+  font-family: "Optima", "Palatino", "Calibri", serif;
   /*color: #cc0066;*/
   color: #b30059;
 }
@@ -101,6 +101,7 @@ a.pubname:hover{
 .mainpanel h5 {
 
   font-family: "Apple Chancery",cursive;
+  font-size: 18px;
   /*font-weight:bold;*/
   color: #b30059;
 }
