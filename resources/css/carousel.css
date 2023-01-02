@@ -75,12 +75,14 @@ img {
 
 a.pubname{
   color:#333333;
-  font-size: 18px;
-  font-weight:bold;
+  /*font-size: 18px;*/
+  font-style:italic;
 }
 
 a.pubname:hover{
   color:#333333;
+  text-decoration-style: dotted;
+  /*border-bottom:  dotted red;*/
 }
 
 .mainpanel td {
@@ -107,6 +109,11 @@ a.pubname:hover{
 }
 .mainpanel li {
 
+  font-size: 15px;
+  /*font-weight:bold;*/
+}
+
+.mainpanel .student {
   font-size: 15px;
   /*font-weight:bold;*/
 }
@@ -137,6 +144,7 @@ a.pubname:hover{
 
 .leftbar a.nav-link:hover {
   text-decoration: underline;
+  text-decoration-style: dotted;
   /*font-weight: bold;*/
 }
 
@@ -183,6 +191,13 @@ a.pubname:hover{
 /*    margin-top: 7rem;*/
 /*  }*/
 /*}*/
+
+.circle{
+/*  width:300px;
+  height:300px;*/
+  object-fit:cover;
+  border-radius:50%;
+}
 
 
 .abstract {
