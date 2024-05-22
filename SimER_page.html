@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .section p, .section ul {
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section" id="introduction">
+            <h2>About SimER</h2>
+            <p>
+              SimER is an AI-driven simulation environment to assist call-taker training under emergency response scenarios.
+            </p>
+        </div>
+        <div class="section" id="components">
+            <h2>What SimER Can Do</h2>
+            <p>
+                SimER currently supports the following major functionalities:
+            </p>
+            <ul>
+                <li><strong>Simulation with Generative AI:</strong> SimER tailors the most up-to-date LLMs as its backend agents with a sophisticatedly designed prompt generation algorithm to generate realistic, valid, and equitable calls.</li>
+                <li><strong>Conversation Reconstruction:</strong> At the end of each simulation, SimER reconstructs the past conversation and supports replay features (in both transcribed text and original audios).</li>
+                <li><strong>Performance Debriefing:</strong> SimER debriefs the past simulation and offers advice to the user for future improvements. SimER also records feedback from users and iteratively refines the system with the local dispatching center.</li>
+            </ul>
+        </div>
+        <div class="section video-container">
+            <h2>SimER Prototype Demo</h2>
+            <video controls>
+                <source src="SimER_Demo_Easy_v1.mp4" type="video/mp4">
+                <source src="SimER_Demo_Easy_v1.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</body>
+</html>
