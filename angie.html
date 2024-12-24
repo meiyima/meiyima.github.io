@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SimER: AI-driven simulation for call-taker training in emergency responses">
+    <meta name="keywords" content="SimER, AI simulation, emergency response training, Vanderbilt University, Metro Nashville">
+    <meta name="author" content="SimER Team">
+    <title>SimER</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #004085;
+            font-size: 1.25em;
+        }
+        p, ul {
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li strong {
+            color: #004085;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        figure figcaption {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            color: #555;
+        }
+        .contact {
+            text-align: right;
+        }
+        .contact p {
+            margin: 5px 0;
+        }
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #004085;
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #004085;
+            padding: 10px 0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover {
+            background-color: #002752;
+        }
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .team-member {
+            flex: 1 1 calc(33.333% - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .team-member img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .team-member .intro {
+            max-width: 220px;
+        }
+        .icons-and-widget {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    .icons {
+        display: flex;
+        justify-content: center; /* Centers the icons horizontally */
+        align-items: center; /* Aligns icons vertically within the container */
+        flex-wrap: wrap; /* Allows wrapping to the next row */
+        gap: 10px; /* Adds spacing between icons */
+    }
+
+        .icons img {
+            max-width: 120px;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+        }
+        .revolver-map {
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .team-member {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <b>SimER</b>: AI-driven <b><u>Sim</u></b>ulation for Call-Taker Training in <b><u>E</u></b>mergency <b><u>R</u></b>esponses
+            </h1>
+        </div>
+        <div class="nav">
+            <a href="#introduction">About SimER</a>
+            <a href="#components">What SimER Can Do</a>
+            <a href="#video">Demo</a>
+            <a href="#resources">Resources</a>
+            <a href="#people">Our Team</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <div class="section" id="introduction">
+            <h2>About SimER</h2>
+            <p>
+              SimER is an AI-driven simulation environment to assist call-taker training under emergency response scenarios. SimER is under a collaborated project supported by Vanderbilt University and Metro Nashville Government.<br>
+                <i><strong>Fun Fact: </strong></i> SimER is called <strong>ANGIE</strong> at DEC to honor a beloved retired employee, Angie. There's a saying at DEC: "<u>Ask Angie, because he knows everything.</u>"
+
+            </p>
+            <figure>
+                <img src="resource_simer/simer_overview.png" alt="Overview of SimER">
+                <figcaption>A Closer Look at SimER</figcaption>
+            </figure>
+        </div>
+        <div class="section" id="components">
+            <h2>What SimER Can Do</h2>
+            <ul>
+                <li>SimER <i><strong>learns from</strong></i> past 911 calls. It is tuned using various <u>incident specification</u> with diverse <u>caller images</u>.</li>
+                <li>SimER <i><strong>talks to</strong></i> the trainee. SimER tailors the most up-to-date LLMs as its backend agents with a sophisticatedly designed prompt generation algorithm to generate <u>realistic</u>, <u>valid</u>, and <u>inclusive</u> calls.</li>
+                <li>SimER <i><strong>coaches</strong></i> the trainee, <u>debriefing</u> trainee performance after evaluation.</li>
+            </ul>
+        </div>
+        <div class="section video-container" id="video">
+            <h2>SimER Prototype Demo</h2>
+            <video controls>
+                <source src="resource_simer/SimER_Demo_Easy_v1.mp4" type="video/mp4">
+                <source src="SimER_Demo_Easy_v1.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    <div class="section" id="resources">
+        <h2>Resources</h2>
+        <p>Explore our research papers, code repositories, slides, and demos related to this project:</p>
+        <div class="resource-list">
+            <div class="resource-item">
+                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30199/32129" target="_blank" class="resource-link">[Paper]</a>
+                <a href="https://github.com/AICPS-Lab/Auto311" target="_blank" class="resource-link">[Code]</a>
+                <a href="https://underline.io/lecture/94122-auto311-a-confidence-guided-automated-system-for-non-emergency-call-video" target="_blank" class="resource-link">[Slides]</a>
+                <a href="https://youtu.be/g2gvhK5nkUI?si=uD_uZ2LaODii7qvZ" target="_blank" class="resource-link">[Demo]</a>
+                <span class="resource-description">
+                    [1]<strong> Auto311: A Confidence-Guided Automated System for Non-emergency Calls</strong> <i>Accepted at AAAI-2024 (Selected Oral Spotlight 6%).</i>
+                </span>
+            </div>
+            <div class="resource-item">
+                <a target="_blank" class="resource-link">[Paper]</a>
+                <a href="https://github.com/AICPS-Lab/Sim911_Prototype" target="_blank" class="resource-link">[Code]</a>
+                <a target="_blank" class="resource-link">[Slides]</a>
+                <a target="_blank" class="resource-link">[Demo]</a>
+                <span class="resource-description">
+                    [2]<strong> Sim911: Towards Effective and Equitable 9-1-1 Dispatcher Training with an LLM-Enabled Simulation</strong> <i>Accepted at AAAI-2025.</i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <div class="section" id="people">
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <a href="https://meiyima.github.io/">
+                        <img src="resource_simer/simer_members/meiyi.jpeg" alt="Dr. Meiyi Ma">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Meiyi Ma, Ph.D.</strong><br>Assistant Professor in Department of Computer Science at Vanderbilt</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="http://rexzchen.github.io">
+                        <img src="resource_simer/simer_members/rex.jpeg" alt="Zirong Chen">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Zirong Chen</strong><br>Computer Science Ph.D Student at Vanderbilt</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/boris-mladenovski-b61552239/">
+                        <img src="resource_simer/simer_members/noah.jpeg" alt="Noah Mladenovski">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Noah Mladenovski</strong><br>IT Specialist at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/erin-wilson-73ab28194/">
+                        <img src="resource_simer/simer_members/erin.jpeg" alt="Erin Wilson">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Erin Wilson</strong><br>Information Systems Application Analyst at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="resource_simer/simer_members/default.png" alt="Amber Doss">
+                    <div class="intro">
+                        <p><strong>Amber Doss</strong><br>Call-taker, Dispatcher, and Emergency Response Training Specialist at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="resource_simer/simer_members/jennifer.jpeg" alt="Jennifer Reynolds">
+                    <div class="intro">
+                        <p><strong>Jennifer Reynolds</strong><br>Call-taker, Dispatcher, and Emergency Response Training Specialist at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="resource_simer/simer_members/default.png" alt="Izeko Floyd">
+                    <div class="intro">
+                        <p><strong>Izeko Floyd</strong><br>Quality Assurance Supervisor at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="resource_simer/simer_members/tim.jpeg" alt="Tim Watkins">
+                    <div class="intro">
+                        <p><strong>Tim Watkins</strong><br>Technology Manager at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/kristin-mullen-rpl-cmcp-516979280/">
+                        <img src="resource_simer/simer_members/kristin.jpeg" alt="Kristin Mullen">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Kristin Mullen, RPL, CMCP</strong><br>Training and Quality Assurance Manager at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.nashville.gov/departments/emergency-communications/people/paul-mccallister">
+                        <img src="resource_simer/simer_members/paul.jpeg" alt="Paul McCallister">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Paul McCallister</strong><br>Deputy Director of Operations at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.nashville.gov/departments/emergency-communications/people/patrice-coleman">
+                        <img src="resource_simer/simer_members/patrice.jpeg" alt="Patrice Coleman">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Patrice Coleman</strong><br>Deputy Director of Support Services at Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/stephen-martini-enp-cpe-58109756/">
+                        <img src="resource_simer/simer_members/steve.jpeg" alt="Stephen Martini">
+                    </a>
+                    <div class="intro">
+                        <p><strong>Stephen Martini, ENP CPE</strong><br>Director of Metro Nashville Dept. of Emergency Communications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="contact">
+            <div class="icons-and-widget">
+                <div class="icons">
+                    <a href="https://www.isis.vanderbilt.edu/">
+                        <img src="resource_simer/icons/isis.jpeg" alt="Institute for Software Integrated Systems">
+                    </a>
+                    <a href="https://engineering.vanderbilt.edu/">
+                        <img src="resource_simer/icons/vandy.png" alt="Vanderbilt Engineering">
+                    </a>
+                    <a href="https://www.nashville.gov/">
+                        <img src="resource_simer/icons/metro.png" alt="Metro Nashville">
+                    </a>
+                    <a href="https://www.nashville.gov/departments/emergency-communications">
+                        <img src="resource_simer/icons/dec.jpg" alt="Department of Emergency Communications">
+                    </a>
+                    <a href="https://www.nashville.gov/departments/information-technology-services/">
+                        <img src="resource_simer/icons/its.png" alt="Information Technology Services">
+                    </a>
+                </div>
+                <div class="icons">
+                    <a href="https://www.nsf.gov">
+                        <img src="resource_simer/icons/nsf.png" alt="National Science Foundation">
+                    </a>
+                    <a href="https://www.google.com">
+                        <img src="resource_simer/icons/google.png" alt="Google Inc.">
+                    </a>
+                    <a href="https://openai.com">
+                        <img src="resource_simer/icons/openai.jpg" alt="OpenAI">
+                    </a>
+                    <a href="https://nashvilleinnovationalliance.org/">
+                        <img src="resource_simer/icons/alliance.png" alt="Alliance">
+                    </a>
+                </div>
+                <div class="revolver-map">
+                    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5oqzdbnj2gi&amp;b=9&amp;s=0&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
+                </div>
+            </div>
+            <div class="contact">
+                <p style="font-size:15px">Contact Us:</p>
+                <p style="font-size:15px"><strong>Zirong Chen</strong>: <a href="mailto:zirong.chen@vanderbilt.edu">zirong.chen@vanderbilt.edu</a></p>
+                <p style="font-size:15px"><strong>Dr. Meiyi Ma</strong>: <a href="mailto:meiyi.ma@vanderbilt.edu">meiyi.ma@vanderbilt.edu</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
