@@ -8,146 +8,324 @@
     <meta name="author" content="SimER Team">
     <title>SimER</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #eef2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            color: #333;
+            color: #2c3e50;
+            line-height: 1.6;
         }
+        
         .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 20px;
-            padding: 20px;
+            max-width: 1200px;
+            width: 95%;
+            margin: 20px auto;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
         }
+        
         h2 {
             color: #004085;
-            font-size: 1.25em;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #004085, #0066cc);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .section:hover h2::after {
+            width: 100px;
+        }
+        
         p, ul {
-            line-height: 1.6;
+            line-height: 1.8;
             color: #555;
         }
+        
         ul {
             padding-left: 20px;
         }
+        
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
+        
         li strong {
             color: #004085;
+            font-weight: 600;
         }
-        .image-container {
-            text-align: center;
-            margin-bottom: 20px;
+        .section {
+            padding: 2rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        
+        .section:first-of-type {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1rem;
+                margin-bottom: 0.75rem;
+            }
         }
         video {
             width: 100%;
             height: auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         figure {
             text-align: center;
-            margin: 20px 0;
+            margin: 2rem 0;
         }
+        
         figure img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        
+        figure img:hover {
+            transform: scale(1.02);
+        }
+        
         figure figcaption {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #555;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
         }
         .footer {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2rem 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .footer-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            color: #555;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
+        
         .contact {
-            text-align: right;
+            flex: 1;
+            min-width: 250px;
         }
+        
+        .contact h3 {
+            color: #004085;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
         .contact p {
-            margin: 5px 0;
+            margin: 0.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
         }
+        
         .contact a {
-            color: #007bff;
+            color: #0066cc;
             text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
         }
+        
         .contact a:hover {
-            text-decoration: underline;
+            color: #004085;
+            transform: translateX(3px);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .icons-and-widget {
+                width: 100%;
+            }
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, #004085 0%, #0066cc 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
         .header h1 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #004085;
-            margin: 0;
-            font-size: 1.5em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: white;
+            margin: 0 0 1rem 0;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
         }
         .nav {
             display: flex;
             justify-content: center;
-            background-color: #004085;
-            padding: 10px 0;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e0e0e0;
         }
+        
         .nav a {
-            color: #fff;
+            color: #004085;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
+        
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #004085, #0066cc);
+            transition: width 0.3s ease;
+        }
+        
         .nav a:hover {
-            background-color: #002752;
+            color: #0066cc;
+            background-color: rgba(0, 64, 133, 0.05);
+        }
+        
+        .nav a:hover::after {
+            width: 80%;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+            .nav a {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
         }
         .team {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
         }
+        
         .team-member {
-            flex: 1 1 calc(33.333% - 20px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
             text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8e8;
         }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
         .team-member img {
-            max-width: 100px;
-            height: auto;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+            border: 3px solid #004085;
+            transition: all 0.3s ease;
         }
+        
+        .team-member:hover img {
+            border-color: #0066cc;
+            transform: scale(1.05);
+        }
+        
         .team-member .intro {
-            max-width: 220px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .team-member .intro strong {
+            color: #004085;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         .icons-and-widget {
             display: flex;
@@ -174,19 +352,308 @@
             flex-shrink: 0;
         }
         @media (max-width: 768px) {
-            .team-member {
-                flex: 1 1 100%;
+            .container {
+                margin: 10px auto;
+                border-radius: 0;
             }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .team {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .icons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .icons img {
+                max-width: 150px;
+            }
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Better focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+    </style>
+    
+    <!-- Enhanced animations and scroll effects -->
+    <style>
+        /* Improved mobile navigation */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0.5rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .nav::-webkit-scrollbar-track {
+                background: rgba(0,0,0,0.1);
+            }
+            
+            .nav::-webkit-scrollbar-thumb {
+                background: rgba(0,0,0,0.3);
+                border-radius: 2px;
+            }
+        }
+        
+        /* Enhanced hover effects */
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #004085, #0066cc, #004085);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+            z-index: -1;
+        }
+        
+        .section:hover::before {
+            opacity: 0.03;
+        }
+        
+        /* Better link hover effects */
+        a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        /* Improved card hover states */
+        .metric-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 102, 204, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .metric-card:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger animation for metric cards */
+        .metric-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .metric-card:nth-child(1) { animation-delay: 0.1s; }
+        .metric-card:nth-child(2) { animation-delay: 0.2s; }
+        .metric-card:nth-child(3) { animation-delay: 0.3s; }
+        .metric-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile-optimized touch targets */
+        @media (max-width: 768px) {
+            .nav a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .metric-card {
+                min-height: 120px;
+            }
+        }
+        
+        /* Navigation active state */
+        .nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .nav a.active::after {
+            width: 80%;
+        }
+        
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #004085, #0066cc);
+            z-index: 1002;
+            transition: width 0.1s ease;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #004085;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
         }
     </style>
 </head>
 <body>
+    <div class="scroll-progress"></div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7 14l5-5 5 5"/>
+        </svg>
+    </button>
     <div class="container">
         <div class="header">
             <h1>
                 <b>SimER</b>: AI-driven <b><u>Sim</u></b>ulation for Call-Taker Training in <b><u>E</u></b>mergency <b><u>R</u></b>esponses
             </h1>
         </div>
+        
+        <style>
+            .header-subtitle {
+                font-size: 1.1rem;
+                color: rgba(255, 255, 255, 0.9);
+                margin: 1rem 0 2rem 0;
+                font-weight: 300;
+            }
+            
+            .header-cta {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                margin-top: 2rem;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .btn-demo, .btn-learn {
+                padding: 12px 30px;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                display: inline-block;
+            }
+            
+            .btn-demo {
+                background: white;
+                color: #004085;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+            
+            .btn-demo:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+                background: #f8f9fa;
+            }
+            
+            .btn-learn {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+            
+            .btn-learn:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+            }
+            
+            @media (max-width: 768px) {
+                .header-subtitle {
+                    font-size: 1rem;
+                }
+                
+                .header-cta {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .btn-demo, .btn-learn {
+                    width: 200px;
+                    text-align: center;
+                }
+            }
+        </style>
         <div class="nav">
             <a href="#introduction">About SimER</a>
             <a href="#components">What SimER Can Do</a>
@@ -199,7 +666,7 @@
             <h2>About SimER</h2>
             <p>
               SimER is an AI-driven simulation environment to assist call-taker training under emergency response scenarios. SimER is under a collaborated project supported by Vanderbilt University and Metro Nashville Government.<br>
-                <i><strong>Fun Fact: </strong></i> SimER is called <strong>ANGIE</strong> at DEC to honor a beloved retired employee, Angie. There's a saying at DEC: "<u>Ask Angie, because he knows everything.</u>"
+                <i><strong>Fun Fact: </strong></i> SimER is called <strong>ANGIE</strong> at DEC to honor a beloved retired employee, Angie. There's a saying at DEC: "<u>Ask Angie, because she knows everything.</u>"
 
             </p>
             <figure>
@@ -207,6 +674,147 @@
                 <figcaption>A Closer Look at SimER</figcaption>
             </figure>
         </div>
+        
+        <!-- Success Metrics Dashboard -->
+        <div class="section metrics-dashboard">
+            <h2>Real-world Social Impact</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" data-target="95.93">0</div>
+                    <div class="metric-suffix">%</div>
+                    <div class="metric-label">Debriefing Accuracy</div>
+                    <div class="metric-detail">Call evaluation accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="200">0</div>
+                    <div class="metric-suffix">+</div>
+                    <div class="metric-label">Incident Types</div>
+                    <div class="metric-detail">Supported by Angie</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="113.76">0</div>
+                    <div class="metric-suffix">hrs</div>
+                    <div class="metric-label">Time Saved</div>
+                    <div class="metric-detail">Per training class</div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            .metrics-dashboard {
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                padding: 2rem;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+            }
+            
+            .metrics-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .metric-card {
+                text-align: center;
+                padding: 1.5rem;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                transition: transform 0.3s ease;
+                position: relative;
+            }
+            
+            .metric-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            }
+            
+            .metric-value {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #004085;
+                display: inline-block;
+            }
+            
+            .metric-suffix {
+                font-size: 1.2rem;
+                color: #666;
+                display: inline-block;
+                margin-left: 0.25rem;
+            }
+            
+            .metric-label {
+                font-size: 1rem;
+                font-weight: 600;
+                color: #333;
+                margin-top: 0.5rem;
+            }
+            
+            .metric-detail {
+                font-size: 0.85rem;
+                color: #666;
+                margin-top: 0.25rem;
+            }
+            
+            @media (max-width: 768px) {
+                .metrics-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                }
+                
+                .metric-card {
+                    padding: 1rem;
+                }
+                
+                .metric-value {
+                    font-size: 2rem;
+                }
+            }
+        </style>
+        
+        <script>
+            // Animate counters when they come into view
+            document.addEventListener('DOMContentLoaded', function() {
+                const observerOptions = {
+                    threshold: 0.5,
+                    rootMargin: '0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const counters = entry.target.querySelectorAll('.metric-value');
+                            counters.forEach(counter => {
+                                const target = parseFloat(counter.dataset.target);
+                                const duration = 2000;
+                                const step = target / (duration / 16);
+                                let current = 0;
+                                
+                                const updateCounter = () => {
+                                    current += step;
+                                    if (current < target) {
+                                        counter.textContent = current.toFixed(target % 1 === 0 ? 0 : 2);
+                                        requestAnimationFrame(updateCounter);
+                                    } else {
+                                        counter.textContent = target.toLocaleString();
+                                    }
+                                };
+                                
+                                updateCounter();
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                
+                const dashboard = document.querySelector('.metrics-dashboard');
+                if (dashboard) {
+                    observer.observe(dashboard);
+                }
+            });
+        </script>
+        
         <div class="section" id="components">
             <h2>What SimER Can Do</h2>
             <ul>
@@ -227,24 +835,273 @@
     <div class="section" id="resources">
         <h2>Resources</h2>
         <p>Explore our research papers, code repositories, slides, and demos related to this project:</p>
+        <style>
+            .resource-list {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                margin-top: 25px;
+            }
+            .resource-item {
+                background-color: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                border: 1px solid #e8e8e8;
+            }
+            .resource-item:hover {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+                transform: translateY(-2px);
+            }
+            .resource-header {
+                padding: 20px 25px;
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                border-bottom: 1px solid #e8e8e8;
+            }
+            .resource-title-row {
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            .resource-number {
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                background-color: #004085;
+                color: white;
+                border-radius: 50%;
+                font-weight: bold;
+                font-size: 0.9em;
+                margin-right: 12px;
+                flex-shrink: 0;
+            }
+            .resource-title {
+                flex: 1;
+                color: #333;
+                font-size: 1.05em;
+                line-height: 1.4;
+            }
+            .resource-venue {
+                color: #666;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-top: 5px;
+                padding-left: 40px;
+            }
+            .resource-highlight {
+                display: inline-block;
+                background-color: #fff3cd;
+                color: #856404;
+                padding: 2px 8px;
+                border-radius: 3px;
+                font-size: 0.85em;
+                margin-left: 8px;
+            }
+            .resource-links {
+                padding-left: 40px;
+                margin-top: 12px;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .resource-link {
+                display: inline-block;
+                padding: 6px 14px;
+                background-color: #fff;
+                color: #004085;
+                text-decoration: none;
+                border: 1px solid #004085;
+                border-radius: 20px;
+                font-size: 0.85em;
+                transition: all 0.2s ease;
+            }
+            .resource-link:hover {
+                background-color: #004085;
+                color: white !important;
+            }
+            .resource-link[style*="display:none"] {
+                display: none !important;
+            }
+            .resource-content {
+                padding: 0 25px 20px 25px;
+            }
+            .resource-figure {
+                margin: 20px 0;
+                text-align: center;
+            }
+            .resource-figure img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 6px;
+                border: 1px solid #e8e8e8;
+            }
+            .resource-takeaways {
+                margin-top: 20px;
+                padding: 12px 15px;
+                background-color: #f9fafb;
+                border-radius: 6px;
+                border-left: 2px solid #e0e0e0;
+            }
+            .resource-takeaways h4 {
+                color: #666;
+                font-size: 0.85em;
+                font-weight: 600;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .resource-takeaways ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .resource-takeaways li {
+                color: #666;
+                font-size: 0.85em;
+                line-height: 1.4;
+                padding: 3px 0 3px 18px;
+                position: relative;
+            }
+            .resource-takeaways li:before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: #004085;
+                opacity: 0.6;
+                font-weight: bold;
+            }
+            .resource-takeaways li strong {
+                color: #444;
+                font-weight: 600;
+                font-size: 0.95em;
+            }
+            @media (max-width: 768px) {
+                .resource-header {
+                    padding: 15px 20px;
+                }
+                .resource-content {
+                    padding: 0 20px 15px 20px;
+                }
+                .resource-title-row {
+                    flex-direction: column;
+                }
+                .resource-venue {
+                    padding-left: 0;
+                    margin-top: 8px;
+                }
+                .resource-links {
+                    padding-left: 0;
+                }
+            }
+        </style>
         <div class="resource-list">
             <div class="resource-item">
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30199/32129" target="_blank" class="resource-link">[Paper]</a>
-                <a href="https://github.com/AICPS-Lab/Auto311" target="_blank" class="resource-link">[Code]</a>
-                <a href="https://underline.io/lecture/94122-auto311-a-confidence-guided-automated-system-for-non-emergency-call-video" target="_blank" class="resource-link">[Slides]</a>
-                <a href="https://youtu.be/g2gvhK5nkUI?si=uD_uZ2LaODii7qvZ" target="_blank" class="resource-link">[Demo]</a>
-                <span class="resource-description">
-                    [1]<strong> Auto311: A Confidence-Guided Automated System for Non-emergency Calls</strong> <i>Accepted at AAAI-2024 (Selected Oral Spotlight 6%).</i>
-                </span>
+                <div class="resource-header">
+                    <div class="resource-title-row">
+                        <div style="display: flex; align-items: start;">
+                            <span class="resource-number">1</span>
+                            <div class="resource-title">
+                                <strong>LogiDebrief: A Signal-Temporal Logic based Automated Debriefing Approach with Large Language Models Integration</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-venue">
+                        Accepted and Published at IJCAI-2025 <span class="resource-highlight">Oral Spotlight (13%)</span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="https://arxiv.org/pdf/2505.03985" target="_blank" class="resource-link">Paper</a>
+                        <a href="https://github.com/AICPS-Lab/LogiDebrief" target="_blank" class="resource-link">Code</a>
+                    </div>
+                </div>
+                <div class="resource-content">
+                    <figure class="resource-figure">
+                        <img src="resource_simer/logidebrief.png" alt="LogiDebrief Overview">
+                    </figure>
+                    <div class="resource-takeaways">
+                        <h4>Paper Highlights</h4>
+                        <ul>
+                            <li><strong>AI-Driven Call Debriefing Revolution:</strong> First AI system automating 9-1-1 call debriefing by integrating Signal-Temporal Logic with LLMs, achieving 95.93% accuracy and saving 311.85 hours of quality assurance time.</li>
+                            <li><strong>Solving the Coverage Crisis:</strong> Boosts quality assurance coverage from 3.32% to 85.05%, ensuring more call-takers receive timely feedback.</li>
+                            <li><strong>Just-in-Time Feedback:</strong> Generates comprehensive reports in under 6 seconds versus 11.5 minutes for manual reviews.</li>
+                            <li><strong>Logic-Enhanced Verification:</strong> Formalizes 2,215 call-taking requirements into STL specifications for rigorous procedural compliance.</li>
+                            <li><strong>92.59% User Preference:</strong> Participants cited 59.86% better actionability and 82.70% improved comprehensiveness over traditional methods.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="resource-item">
-                <a target="_blank" class="resource-link">[Paper]</a>
-                <a href="https://github.com/AICPS-Lab/Sim911_Prototype" target="_blank" class="resource-link">[Code]</a>
-                <a target="_blank" class="resource-link">[Slides]</a>
-                <a target="_blank" class="resource-link">[Demo]</a>
-                <span class="resource-description">
-                    [2]<strong> Sim911: Towards Effective and Equitable 9-1-1 Dispatcher Training with an LLM-Enabled Simulation</strong> <i>Accepted at AAAI-2025.</i>
-                </span>
+                <div class="resource-header">
+                    <div class="resource-title-row">
+                        <div style="display: flex; align-items: start;">
+                            <span class="resource-number">2</span>
+                            <div class="resource-title">
+                                <strong>Sim911: Towards Effective and Equitable 9-1-1 Dispatcher Training with an LLM-Enabled Simulation</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-venue">
+                        Accepted at AAAI-2025 <span class="resource-highlight">Oral Spotlight (4.9%)</span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35006/37161" target="_blank" class="resource-link">Paper</a>
+                        <a href="https://github.com/AICPS-Lab/Sim911_Prototype" target="_blank" class="resource-link">Code</a>
+                    </div>
+                </div>
+                <div class="resource-content">
+                    <figure class="resource-figure">
+                        <img src="resource_simer/PromptGeneration.png" alt="Sim911 Prompt Generation Overview">
+                    </figure>
+                    <div class="resource-takeaways">
+                        <h4>Paper Highlights</h4>
+                        <ul>
+                            <li><strong>AI-Powered Emergency Training Revolution:</strong> First LLM-enabled training simulation for 9-1-1 dispatchers, achieving 90% user approval rating and saving 26.55+ hours of dispatcher time.</li>
+                            <li><strong>Addressing Critical Staffing Crisis:</strong> With 25,000 unfilled dispatcher positions nationwide, Sim911 enables individual self-paced training without requiring multiple staff members.</li>
+                            <li><strong>Real-World Accuracy & Inclusivity:</strong> Supports 57 incident types and 14 caller profiles including vulnerable populations, with 83-86% accuracy in simulating diverse demographics.</li>
+                            <li><strong>Comprehensive Emergency Response Suite:</strong> Works with Auto311 to create an end-to-end solution for emergency and non-emergency call handling.</li>
+                            <li><strong>Scalable Solution for 6,000+ Centers:</strong> Provides consistent, high-quality training addressing the complexity gap where traditional methods cover only 48% of incident types.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="resource-item">
+                <div class="resource-header">
+                    <div class="resource-title-row">
+                        <div style="display: flex; align-items: start;">
+                            <span class="resource-number">3</span>
+                            <div class="resource-title">
+                                <strong>Auto311: A Confidence-Guided Automated System for Non-emergency Calls</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-venue">
+                        Accepted at AAAI-2024 <span class="resource-highlight">Oral Spotlight (6%)</span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30199/32129" target="_blank" class="resource-link">Paper</a>
+                        <a href="https://github.com/AICPS-Lab/Auto311" target="_blank" class="resource-link">Code</a>
+                        <a href="https://underline.io/lecture/94122-auto311-a-confidence-guided-automated-system-for-non-emergency-call-video" target="_blank" class="resource-link">Slides</a>
+                        <a href="https://youtu.be/g2gvhK5nkUI?si=uD_uZ2LaODii7qvZ" target="_blank" class="resource-link">Demo</a>
+                    </div>
+                </div>
+                <div class="resource-content">
+                    <figure class="resource-figure">
+                        <img src="resource_simer/auto311.png" alt="Auto311 Overview">
+                    </figure>
+                    <div class="resource-takeaways">
+                        <h4>Paper Highlights</h4>
+                        <ul>
+                            <li><strong>First Automated 311 System:</strong> Pioneering automated system for non-emergency 311 calls, reducing burden on emergency services for faster 911 response times.</li>
+                            <li><strong>92.54% Accuracy in Call Classification:</strong> Achieves impressive F-1 score of 92.54% in predicting incident types and 93% consistency in extracting critical information.</li>
+                            <li><strong>Confidence-Guided Intelligence:</strong> Uses advanced confidence scoring to dynamically adapt during calls and transfer complex cases to human operators when needed.</li>
+                            <li><strong>Handles Real-World Complexity:</strong> Successfully manages multiple incident types per call (38% involve multiple issues) and leverages unintentional additional information from callers.</li>
+                            <li><strong>Optimizes Emergency Response:</strong> Automatically generates case reports and reduces conversation turns through intelligent dialogue management while maintaining 94.49% accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -268,7 +1125,7 @@
                         <img src="resource_simer/simer_members/rex.jpeg" alt="Zirong Chen">
                     </a>
                     <div class="intro">
-                        <p><strong>Zirong Chen</strong><br>Computer Science Ph.D Student at Vanderbilt</p>
+                        <p><strong>Zirong Chen</strong><br>Computer Science Ph.D Candidate at Vanderbilt</p>
                     </div>
                 </div>
                 <div class="team-member">
@@ -346,7 +1203,8 @@
             </div>
         </div>
         <div class="footer" id="contact">
-            <div class="icons-and-widget">
+            <div class="footer-content">
+            <div class="icons-and-widget" style="flex: 2;">
                 <div class="icons">
                     <a href="https://www.isis.vanderbilt.edu/">
                         <img src="resource_simer/icons/isis.jpeg" alt="Institute for Software Integrated Systems">
@@ -382,12 +1240,104 @@
                     <script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5oqzdbnj2gi&amp;b=9&amp;s=0&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
                 </div>
             </div>
-            <div class="contact">
-                <p style="font-size:15px">Contact Us:</p>
-                <p style="font-size:15px"><strong>Zirong Chen</strong>: <a href="mailto:zirong.chen@vanderbilt.edu">zirong.chen@vanderbilt.edu</a></p>
-                <p style="font-size:15px"><strong>Dr. Meiyi Ma</strong>: <a href="mailto:meiyi.ma@vanderbilt.edu">meiyi.ma@vanderbilt.edu</a></p>
+            <div class="contact" style="text-align: right;">
+                <h3>Contact Us</h3>
+                <p><strong>Zirong Chen</strong><br>
+                <a href="mailto:zirong.chen@vanderbilt.edu">zirong.chen@vanderbilt.edu</a></p>
+                <p><strong>Dr. Meiyi Ma</strong><br>
+                <a href="mailto:meiyi.ma@vanderbilt.edu">meiyi.ma@vanderbilt.edu</a></p>
+            </div>
             </div>
         </div>
     </div>
+    
+    <!-- Enhanced JavaScript for UI improvements -->
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollProgress + '%';
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('.section[id], .video-container[id]');
+        const navLinks = document.querySelectorAll('.nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Add fade-in class to sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section, .metrics-dashboard');
+            sections.forEach(section => {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
